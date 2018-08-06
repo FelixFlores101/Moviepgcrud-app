@@ -10,4 +10,9 @@ module.exports = {
    `);
   },
 
+  save(movie) {
+    return db.none(`
+      INSERT INTO movies (movietitle)
+    `, movie);
+  },
 };

@@ -1,8 +1,14 @@
 module.exports = {
     showAll(req, res) {
-    console.log(req,res)
-      res.render('movies.ejs', {
-        data: res.locals.movies
-      })
+        if(res.locals.movies) {
+            res.render('movies.ejs', {
+                data: res.locals.movies
+            })
+        } else {
+            res.redirect('/movies/add')
+        }
+    },
+    addMovie(req, res) {
+        res.redirect('/movies')
     }
-  };
+};

@@ -1,5 +1,0 @@
-const moveSeedDate = [
-    {
-        moviename: 'tron',
-    }
-]
