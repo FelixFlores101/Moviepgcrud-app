@@ -16,7 +16,7 @@ const movies = require('./routes/movies')
 
 
 //set view engine
-app.set('view engine', ejs)
+app.set('view engine', 'ejs')
 
 //  Setup middleware configurations
 app.use(bodyParser.urlencoded({extended: false}))

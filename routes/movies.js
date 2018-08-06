@@ -11,6 +11,9 @@ const controller = require('../controllers/Controller')
 //     res.render('movies.ejs')
 // })
 
+//get slash id
+
+router.get('/:id', controller.findOne, views.showOne)
 
 router.get('/', controller.index, views.showAll)
 
@@ -21,3 +24,5 @@ router.get('/add', (req, res) => {
 router.post('/add', controller.addOne, views.showAll)
 
 module.exports = router
+
+//im missing delete and put

@@ -1,8 +1,8 @@
-const db = require('../controllers/viewController');
+const Movie = require('../models/movie');
 
 module.exports = {
   index(req, res, next) {
-    db.showAll(req, res)
+    Movie.findAll(req, res)
       .then((movies) => {
         res.locals.movies = movies
         // res.json(movies)
@@ -15,12 +15,22 @@ module.exports = {
 
   addOne(req, res, next) {
     // validation
-    // TODO: make this method
-    db.save(req.body.movie_title)
+    Movie.save(req.body.movie_title)
       .then((newMovie) => {
         res.locals.newMovie= newMovie;
         next();
       })
       .catch(e => next(e));
-  }
-};
+  },
+
+  findOne(req, res, next) {
+      Movie.findById(req.params.id)
+      .then((movie) => {
+          res.locals.movie = movie;
+          next();
+      })
+      .catch(next);
+  },
+
+}
+// findOne goes here showONe goes in the viewcontroller

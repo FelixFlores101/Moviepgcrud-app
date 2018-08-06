@@ -15,4 +15,13 @@ module.exports = {
       INSERT INTO movies (movietitle)
     `, movie);
   },
+
+  findById(id) {
+      return db.one(`
+      SELECT * FROM movies
+      WHERE id = $1`,id)
+  }
+// $ is just the way pg promise is used
 };
+
+//import model into controller

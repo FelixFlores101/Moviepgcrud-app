@@ -10,5 +10,10 @@ module.exports = {
     },
     addMovie(req, res) {
         res.redirect('/movies')
+    },
+    showOne(req, res) {
+        res.render('show_movie')
     }
 };
+//thats where to go
+//

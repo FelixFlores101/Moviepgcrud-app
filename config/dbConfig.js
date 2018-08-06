@@ -6,3 +6,5 @@ module.exports = {
 
 //this is just an object with three values; two stings and one number;
 //no functionality to it
+
+// this is connecting the seed and the database to the js. its already been done
