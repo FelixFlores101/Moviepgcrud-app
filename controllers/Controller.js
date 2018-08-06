@@ -1,18 +1,16 @@
-const db = require('../config/connection');
+const db = require('../controllers/viewController');
 
 module.exports = {
   index(req, res, next) {
-    // db.findAll()
-    //   .then((movies) => {
-    //     res.locals.movies = movies;
-    //     // res.json(movies)
-    //     next();
-    //   })
-    //   .catch((err) => {
-    //     next(err);
-    //   });
-    next()
+    db.showAll()
+      .then((movies) => {
+        res.locals.movies = movies;
+        // res.json(movies)
+        next(req, res);
+      })
+      .catch((err) => {
+        next(err);
+      });
   },
-
 
 };

@@ -8,32 +8,24 @@ const views = require('./controllers/viewController')
 
 const controller = require('./controllers/Controller')
 
-//get models
+//  Get Models
 const Movie = require('./models/movie')
 
+//  Routes
+const movies = require('./routes/movies')
 
 
 //set view engine
 app.set('view engine', ejs)
 
+//  Setup middleware configurations
 app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.json())
 app.use(logger('dev'));
 
-//routes
+// Set Up Middleware for routes
+app.use('/movies', movies)
 
-app.get('/movies', (req, res) => {
-    res.render('movies.ejs')
-})
-
-app.get('/movies/add', (req, res) => {
-    res.render('add_movie.ejs')
-})
-
-app.post('/movies/add', (req, res) => {
-    console.log(req.body.movie_title, req.body.where_to_watch)
-    res.redirect('/movies')
-    
-})
 
 // start express server
 app.listen(3000, () => {
