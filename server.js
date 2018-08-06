@@ -4,9 +4,14 @@ const ejs = require('ejs')
 const bodyParser = require('body-parser')
 const db = require('./config/connection')
 const app = express();
+const views = require('./controllers/viewController')
 
-//  CONNECT TO DB 
-db.connect({direct: true})
+const controller = require('./controllers/Controller')
+
+//get models
+const Movie = require('./models/movie')
+
+
 
 //set view engine
 app.set('view engine', ejs)
@@ -15,13 +20,10 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(logger('dev'));
 
 //routes
-app.get('/', (req, res) => {
-    res.send('Hello world!');
-    
-});
+
 app.get('/movies', (req, res) => {
     res.render('movies.ejs')
-});
+})
 
 app.get('/movies/add', (req, res) => {
     res.render('add_movie.ejs')
