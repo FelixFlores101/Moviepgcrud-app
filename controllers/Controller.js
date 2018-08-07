@@ -15,10 +15,14 @@ module.exports = {
 
   addOne(req, res, next) {
     // validation
-    Movie.save(req.body.movie_title)
-      .then((newMovie) => {
-        res.locals.newMovie= newMovie;
-        next();
+    Movie.saveMovie(req.body.movie_title)
+    .then(() => {
+        res.locals.newMovie = {
+          title: req.body.movie_title,
+          platform: req.body.where_to_watch
+        }
+
+        return next();
       })
       .catch(e => next(e));
   },

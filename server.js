@@ -14,9 +14,11 @@ const Movie = require('./models/movie')
 //  Routes
 const movies = require('./routes/movies')
 
-
 //set view engine
 app.set('view engine', 'ejs')
+
+//  Set Static Assets For Front End Js And Css Files
+app.use(express.static('./public'))
 
 //  Setup middleware configurations
 app.use(bodyParser.urlencoded({extended: false}))

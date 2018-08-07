@@ -13,15 +13,15 @@ const controller = require('../controllers/Controller')
 
 //get slash id
 
+router.get('/add', (req, res) => {
+    res.render('add_movie.ejs')
+})
 router.get('/:id', controller.findOne, views.showOne)
 
 router.get('/', controller.index, views.showAll)
 
-router.get('/add', (req, res) => {
-    res.render('add_movie.ejs')
-})
 
-router.post('/add', controller.addOne, views.showAll)
+router.post('/add', controller.addOne, views.addMovie)
 
 module.exports = router
 

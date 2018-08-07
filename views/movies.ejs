@@ -10,9 +10,17 @@
     <h1>Movies I Should Be Watching</h1>
     <ul>
             <% data.forEach(movie => { %>
-                <li><%= movie.moviename%></li>
-                <li><%= movie.platform%></li>
+                <li>
+                    <div>
+                        <a href="/movies/<%= movie.id %>">Title: <%= movie.moviename%></a> 
+                        Platform: <%= movie.platform%>       
+                    </div>
+                </li>
+               
                 <% }) %>
+
+
+                
     </ul>
 </body>
 </html>
