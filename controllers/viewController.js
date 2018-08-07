@@ -1,7 +1,8 @@
 module.exports = {
     showAll(req, res) {
+        console.log('this is res.locals.movies', res.locals.movies);
         if(res.locals.movies) {
-            res.render('movies.ejs', {
+            res.render('movies', {
                 data: res.locals.movies
             })
         } else {

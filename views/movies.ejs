@@ -9,10 +9,10 @@
 <body>
     <h1>Movies I Should Be Watching</h1>
     <ul>
-        <li>A movie</li>
-        <li>A movie</li>
-        <li>A movie</li>
-        <li>A movie</li>
+            <% data.forEach(movie => { %>
+                <li><%= movie.moviename%></li>
+                <li><%= movie.platform%></li>
+                <% }) %>
     </ul>
 </body>
 </html>
