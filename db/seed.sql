@@ -1,6 +1,7 @@
 INSERT INTO movies (moviename, platform, date_created) VALUES
-('titanic', 'netflix', '08/12/18'),
-('django', 'amazon prime', '08/12/18');
+('Titanic', 'Netflix', '08/12/18'),
+('Django', 'Amazon Prime', '08/12/18'),
+('Black Hawk Down', 'Netflix', '08/12/18');
 
     
 
