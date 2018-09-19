@@ -28,6 +28,11 @@ module.exports = {
 
   destroy(id){
     return db.none(`DELETE FROM movies WHERE id = $1`, id);
+  },
+
+  update(id, moviename, movieplatform) {
+    return db.none(`UPDATE movies SET moviename=$2, platform=$3 WHERE id = $1`, [id, moviename, movieplatform]);
+    // return db.one('SELECT * FROM movies WHERE id = $1 ', id)
   }
 };
 

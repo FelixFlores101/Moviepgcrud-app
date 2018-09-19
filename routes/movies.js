@@ -13,13 +13,15 @@ const redirectUserToList = (req, res) => {res.redirect('/movies')};
 
 
 router.get('/', controller.index, views.showAll)
-router.get('/:id', controller.findOne, views.showOne)
 router.get('/add', (req, res) => {
     res.render('add_movie.ejs')
 })
+router.get('/:id', controller.findOne, views.showOne)
+router.get('/:id/edit', controller.findOne, views.editMovie)
 
 
 
+router.post('/:id/edit-movie', controller.editMovie, views.redirectHome)
 router.post('/add', controller.addOne, views.addMovie)
 
 router.delete('/:id', controller.destroy)

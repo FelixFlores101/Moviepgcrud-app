@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Edit Movie <%= movie.moviename %></h1>
+    <form action="/movies/<%=movie.id %>/edit-movie" method='post'>
+        <input type="text" value='<%= movie.moviename %>' name='moviename' placeholder='movie name'>
+        <input type="text" value='<%= movie.platform %>' name='platform' placeholder='where to watch'>
+        <input type="submit">
+    </form>
+</body>
+</html>

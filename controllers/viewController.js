@@ -16,6 +16,16 @@ module.exports = {
     //6 it finishes here at the add Movie
     showOne(req, res) {
         res.render('show_movie')
+    },
+
+    editMovie(req, res) {
+            res.render('edit_movie', {
+                movie: res.locals.movie
+            })
+    },
+
+    redirectHome(req, res) {
+        res.redirect('/movies')
     }
 };
 //thats where to go

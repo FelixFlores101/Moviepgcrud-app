@@ -47,6 +47,17 @@ module.exports = {
     .catch(err => {
       next(err);
     })
+  },
+
+  editMovie(req, res, next) {
+    Movie.update(req.params.id, req.body.moviename, req.body.platform)
+    .then((movie) => {
+      res.locals.movie = movie
+      next(movie)
+    })
+    .catch(err => {
+      next(err)
+    })
   }
 
 }
