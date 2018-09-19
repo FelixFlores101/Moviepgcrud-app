@@ -9,12 +9,16 @@
 <body>
     <h1>Movies I Should Be Watching</h1>
     <ul>
-            <% data.forEach(movie => { %>
+            <% data.map((movie, index) => { %>
                 <li>
                     <div>
                         <a href="/movies/<%= movie.id %>">Title: <%= movie.moviename%></a> 
                         Platform: <%= movie.platform%>       
                     </div>
+                    <a href="/movies/<%=movie.id%>"><h1>Delete Movie</h1></a>
+                    <form action="<%=`/movies/${movie.id}?_method=DELETE` %>"method="POST">
+                        <input type="submit" value="Delete" />
+                    </form>
                 </li>
                
                 <% }) %>
@@ -22,5 +26,10 @@
 
                 
     </ul>
+    <a href="/movies/add"><h1>Add Movie</h1></a>
+    <a href="/movies">
+        <h1>
+                Edit Movie List
+        </h1></a>
 </body>
 </html>

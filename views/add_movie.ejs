@@ -11,13 +11,18 @@
     <form action="/movies/add" method='POST'>
         <div>
             <label for="">Title of Movie</label>
-            <input type="text" name='movie_title' />
+            <input type="text" name='moviename' />
         </div>
         <div>
-            <label for="">Where TO Watch</label>
-            <input type="text" name='where_to_watch' />
+            <label for="">Where To Watch</label>
+            <input type="text" name='platform' />
         </div>
         <input type="submit" />
     </form>
 </body>
 </html>
+
+<!-- 1) it starts on /movies/add. it goes to title of movie and then where to watch
+it then creates an object with a movie and platfrom
+It then inserts it in a post method. that post method then 
+goes to /movies/add. we then go to routes/movies.js -->

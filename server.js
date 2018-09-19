@@ -5,6 +5,7 @@ const bodyParser = require('body-parser')
 const db = require('./config/connection')
 const app = express();
 const views = require('./controllers/viewController')
+const methodOverride = require('method-override')
 
 const controller = require('./controllers/Controller')
 
@@ -24,9 +25,21 @@ app.use(express.static('./public'))
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 app.use(logger('dev'));
+app.use(methodOverride('_method'))
+
+//show the home page
+app.get('/',(req, res)=>{
+    res.render('index');
+})
+
+
+
 
 // Set Up Middleware for routes
 app.use('/movies', movies)
+
+//the /movies in red make an automatic /movies to all .uses in
+//the movies.js because the movies in blue tells it to
 
 
 // start express server

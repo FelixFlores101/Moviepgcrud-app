@@ -14,17 +14,16 @@ module.exports = {
   },
 
   addOne(req, res, next) {
-    // validation
-    Movie.saveMovie(req.body.movie_title)
-    .then(() => {
-        res.locals.newMovie = {
-          title: req.body.movie_title,
-          platform: req.body.where_to_watch
-        }
+    console.log('got a post request')
+    // 3) add one here 
 
+    // validation
+    Movie.saveMovie(req.body)
+    .then((data) => {
         return next();
       })
       .catch(e => next(e));
+      //then it goes to models movie.js
   },
 
   findOne(req, res, next) {
@@ -36,5 +35,21 @@ module.exports = {
       .catch(next);
   },
 
+  destroy(req, res, next) {
+    
+    Movie.destroy(req.params.id)
+    .then( () => { 
+      console.log(req.params.id, "delete movie")
+      res.redirect('/movies')
+      next();
+    })
+
+    .catch(err => {
+      next(err);
+    })
+  }
+
 }
 // findOne goes here showONe goes in the viewcontroller
+
+// figure out how to do the save
