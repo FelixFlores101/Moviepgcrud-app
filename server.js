@@ -26,6 +26,7 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 app.use(logger('dev'));
 app.use(methodOverride('_method'))
+app.use(express.static(__dirname + "/public"));
 
 //show the home page
 app.get('/',(req, res)=>{

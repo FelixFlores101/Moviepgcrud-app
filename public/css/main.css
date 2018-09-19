@@ -1,0 +1,10 @@
+body {
+    background-image: url('http://digm.drexel.edu/acelab/wp-content/uploads/2013/10/PosterCollage.jpg');
+    background-size: cover;
+}
+
+h1,h2 {
+    color: rgb(232, 225, 35);
+    text-align: center;
+    font-size: 62pt;
+}
